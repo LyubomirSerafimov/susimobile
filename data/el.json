@@ -1,0 +1,93 @@
+[
+	{
+		"id": "JavaScript за напреднали",
+		"start": 15,
+		"end": 18,
+		"day": "monday" 
+	}, {
+		"id": "JavaScript за напреднали",
+		"start": 11,
+		"end": 14,
+		"day": "thursday"
+	}, {
+		"id": "Администриране на портали",
+		"start": 17,
+		"end": 21,
+		"day": "monday" 
+	}, {
+		"id": "Вградени и автоматични системи",
+		"start": 17,
+		"end": 21,
+		"day": "wednesday"
+	}, {
+		"id": "Компютърна графика",
+		"start": 13,
+		"end": 15,
+		"day": "thursday"
+	}, {
+		"id": "Компютърна графика",
+		"start": 11,
+		"end": 13,
+		"day": "thursday"
+	}, {
+		"id": "Основи на TCP/IP",
+		"start": 18,
+		"end": 22,
+		"day": "thursday"
+	}, {
+		"id": "Програмиране с Go",
+		"start": 19,
+		"end": 21,
+		"day": "tuesday"
+	}, {
+		"id": "Програмиране с Go",
+		"start": 19,
+		"end": 21,
+		"day": "thursday"
+	}, {
+		"id": "Програмиране за ОС Android",
+		"start": 18,
+		"end": 20,
+		"day": "tuesday"
+	}, {
+		"id": "Програмиране за ОС Android",
+		"start": 20,
+		"end": 21,
+		"day": "tuesday"
+	}, {
+		"id": "Изкуствен интелект",
+		"start": 18,
+		"end": 21,
+		"day": "tuesday"
+	}, {
+		"id": "Изкуствен интелект",
+		"start": 19,
+		"end": 21,
+		"day": "thursday"
+	}, {
+		"id": "Изчислителна геометрия ",
+		"start": 17,
+		"end": 19,
+		"day": "thursday"
+	}, {
+		"id": "Изчислителна геометрия ",
+		"start": 19,
+		"end": 21,
+		"day": "thursday"
+	}, {
+		"id": "Мрежова сигурност",
+		"start": 17,
+		"end": 21,
+		"day": "wednesday"
+	}, {
+		"id": "Съвременни комуникации",
+		"start": 15,
+		"end": 19,
+		"day": "monday"
+	}, {
+		"id": "Съвременни комуникации",
+		"start": 16,
+		"end": 18,
+		"day": "friday"
+	}
+]
