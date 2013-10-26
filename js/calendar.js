@@ -1,4 +1,4 @@
-(function($) {
+//(function($) {
     console.log('calendar oppened');
 
     var canvasWidth = document.getElementById('events_container').clientWidth,
@@ -359,6 +359,4 @@
         showProgramForDay(day);
     });
 
-
-
-})(jQuery);
+//})(jQuery);
