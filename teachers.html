@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SUSI Mobile</title>
+    <link rel="stylesheet"  href="css/themes/default/jquery.mobile-1.3.2.min.css">
+    <link rel="shortcut icon" href="demos/_assets/favicon.ico">
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.mobile-1.3.2.min.js"></script>
+	<script type="text/javascript">
+		var allTeachersData = null;
+		function loadData() {
+			$(document).ready(function () {});
+			var scr = document.createElement("script");
+			scr.setAttribute("src", "data/teachers_jsonp.json");
+			$(scr).appendTo($("body"));
+		}
+		function teachersFetched(jsonData) {
+			allTeachersData = jsonData;
+			for(i=0; i<jsonData.length; i++) {
+				var dataI = jsonData[i];
+				var str = "<li><a href=\"#moreinfo-teacher\"" +
+					"data-rel=\"popup\" data-position-to=\"window\" data-transition=\"pop\">" +
+					dataI["teacherName"] + "</a></li>";
+				$("#teachers-list").append(str);
+				/*var popupStr = "<div data-role=\"popup\" id=\"moreinfo-" + dataI["teacherId"] +
+					"\"><p>" + dataI["teacherTitle"] + " " + dataI["teacherFullname"] +
+					"<br>Катедра: " + dataI["department"] + "<br>" +
+					"Email: <a href=mailto:" + dataI["teacherEmail"] + ">" + dataI["teacherEmail"] +
+					"</a></p>";
+				$("#anchor-popups").after(popupStr);*/
+			}
+			$("#teachers-list").listview("refresh");
+			var singlePopup = "<div data-role=\"popup\" id=\"moreinfo-teacher\"><p>ASD</p></div>";
+			$("#anchor-popups").after(singlePopup);
+			$('#moreinfo-teacher').popup();
+		}
+		$(document).ready(loadData);
+	</script>
+</head>
+<body>
+<div data-role="page" id="page1">
+    <div data-theme="a" data-role="header" data-position="fixed" >
+        <a data-role="button" data-icon="search" data-iconpos="notext" data-corners="false"
+        class="ui-btn-right" ></a>
+        <a data-role="button" href="#defaultpanel" data-icon="bars" data-iconpos="notext" data-corners="false"
+        class="ui-btn-left" id="leftPanel" ></a>
+        <h3>
+            Преподаватели - контакти
+        </h3>
+    </div>
+	<div data-role="content">
+		<ul id="teachers-list" data-role="listview" data-filter="true" data-filter-placeholder="Търси преподаватели..." data-inset="true">
+		</ul>
+	</div>
+	<div id="anchor-popups"/>
+	<div data-role="panel" id="defaultpanel" class="ui-panel ui-panel-position-left ui-panel-display-overlay ui-body-c ui-panel-animate ui-panel-closed">
+    </div>
+</div>
+</body>
+</html>
