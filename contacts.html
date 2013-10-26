@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SUSI Mobile</title>
+    <link rel="stylesheet"  href="css/themes/default/jquery.mobile-1.3.2.min.css">
+    <link rel="shortcut icon" href="demos/_assets/favicon.ico">
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.mobile-1.3.2.min.js"></script>
+</head>
+<body>
+<div data-role="page" id="page1">
+    <div data-theme="a" data-role="header" data-position="fixed" >
+        <a data-role="button" data-icon="search" data-iconpos="notext" data-corners="false"
+        class="ui-btn-right" ></a>
+        <a data-role="button" href="#defaultpanel" data-icon="bars" data-iconpos="notext" data-corners="false"
+        class="ui-btn-left" id="leftPanel" ></a>
+        <h3>
+            Контакти
+        </h3>
+    </div>
+	<div data-role="content">
+		<div data-role="collapsible-set" data-theme="c" data-content-theme="d">
+			<div data-role="collapsible">
+				<h3>Факултет по Математика и Информатика</h3>
+				<p>Софийски университет "Св. Климент Охридски"<br>София 1164, бул. Джеймс Баучър 5</p>
+				<div style="border-radius: 5.0px; border: 10px solid black"><iframe width="100%" height="250" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=42.674544,23.330366&amp;num=1&amp;ie=UTF8&amp;ll=42.674548,23.330369&amp;spn=0.009261,0.021136&amp;t=m&amp;z=14&amp;output=embed"></iframe></div>
+				<!--<br /><small><a href="https://maps.google.com/maps?q=42.674544,23.330366&amp;num=1&amp;ie=UTF8&amp;ll=42.674548,23.330369&amp;spn=0.009261,0.021136&amp;t=m&amp;z=14&amp;source=embed" style="color:#0000FF;text-align:left">Вижте по-голяма карта</a></small>-->
+			</div>
+			<div data-role="collapsible">
+				<h3>Отдел студенти</h3>
+				<p>Кабинет 221<br /><b>Работно време: 10:00 - 11:00, 13:30 - 15:30</b><br />
+					Телефонс: <a href="tel:028161542">02/8161-542</a>, <a href="tel:028623483">02/8623-483</a>
+				</p>
+			</div>
+			<div data-role="collapsible">
+				<h3>Деканат</h3>
+				<ul data-role="listview" data-theme="a" data-split-theme="b">
+					<li><a href="#moreinfo-dekan" data-rel="popup" data-position-to="window" data-transition="pop">Декан,<br>доц. д-р Евгения Димитрова Великова</a></li>
+					<li><a href="#moreinfo-zd-bak" data-rel="popup" data-position-to="window" data-transition="pop">Заместник-декан по учебната дейност, бакалавърски програми,<br>доц. д-р Първан Първанов</a></li>
+					<li><a href="#moreinfo-zd-mag" data-rel="popup" data-position-to="window" data-transition="pop">Заместник-декан по учебната дейност, магистърски програми и програма Еразъм,<br>проф. д-р  Мария Нишева</a></li>
+					<li><a href="#moreinfo-zd-res" data-rel="popup" data-position-to="window" data-transition="pop">Заместник-декан по научно-изследователската дейност , докторантури и СДК,<br>доц. д-р Надя Златева</a></li>
+					<li><a href="#moreinfo-zd-econ" data-rel="popup" data-position-to="window" data-transition="pop">Заместник-декан по стопанска и международна дейност, прием на студенти,<br>доц. д-р Христо Ганчев</a></li>
+				</ul>
+				
+			</div>
+			<div data-role="collapsible">
+				<h3>Учебен отдел</h3>
+				<p>Ани Николова Василева,<br>инспектор ОКС ”Бакалавър”, каб. 209-А,<br>
+				Телефон: <a href="tel:028161522">02/8161-522</a>, <a href="tel:028622373">02/8622-373</a>,<br>
+				Email: <a href="mailto:aniv@fmi.uni-sofia.bg">aniv@fmi.uni-sofia.bg</a></p>
+				<p>Юлия Борисова Савова,<br>инспектор ОКС ”Бакалавър”, каб. 209-А,<br>
+				Телефон: <a href="tel:028161522">02/8161-522</a>, <a href="tel:028622373">02/8622-373</a>,<br>
+				Email: <a href="mailto:ucheben@fmi.uni-sofia.bg">ucheben@fmi.uni-sofia.bg</a>,<br>
+				<a href="mailto:jbsavova@fmi.uni-sofia.bg">jbsavova@fmi.uni-sofia.bg</a></p>
+				<p>Цветанка Михайлова Симова,<br>инспектор ОКС ”Магистър”, каб. 202,<br>
+				Телефон: <a href="tel:028161576">02/8161-576</a>,<br>
+				Email: <a href="mailto:csimova@fmi.uni-sofia.bg">csimova@fmi.uni-sofia.bg</a></p>
+			</div>
+		</div>
+		<a href="teachers.html" data-role="button">Преподаватели</a>
+	</div>
+	<div data-role="popup" id="moreinfo-dekan">
+		<p>Декан: <b>доц. д-р Евгения Димитрова Великова</b><br>
+		Кабинет 208, телефон: <a href="tel:028161500">02/8161-500</a>,<br>
+		Email: <a href="mailto:velikova@fmi.uni-sofia.bg">velikova@fmi.uni-sofia.bg</a>
+		<table><tr><td>приемно време:</td><td>понеделник 14.00 ч. - 15.00 ч.</td></tr>
+        <tr><td></td><td>четвъртък    14.00 ч.  - 15.00 ч.</td></tr></table></p>
+	</div>
+	<div data-role="popup" id="moreinfo-zd-bak">
+		<p>Заместник-декан по учебната дейност, бакалавърски програми:<br>
+		<b>доц. д-р Първан Първанов</b><br>
+		Кабинет 208, телефон: <a href="tel:028161574">02/8161-574</a>,<br>
+		Email: <a href="mailto:pparvan@fmi.uni-sofia.bg">pparvan@fmi.uni-sofia.bg</a>
+		<table><tr><td>приемно време:</td><td>вторник    10:00 ч.  – 12:00 ч.</td></tr>
+        <tr><td></td><td>четвъртък 10:00 ч.  – 12:00 ч.</td></tr></table></p>
+	</div>
+	<div data-role="popup" id="moreinfo-zd-mag">
+		<p>Заместник-декан по учебната дейност, магистърски програми и програма Еразъм:<br>
+		<b>проф. д-р  Мария Нишева</b><br>
+		Кабинет 208, телефон: <a href="tel:028161574">02/8161-574</a>,<br>
+		Email: <a href="mailto:marian@fmi.uni-sofia.bg">marian@fmi.uni-sofia.bg</a>
+		<table><tr><td>приемно време:</td><td>четвъртък 13:00 ч. – 15:00 ч.</td></tr></table></p>
+	</div>
+	<div data-role="popup" id="moreinfo-zd-res">
+		<p>Заместник-декан по научно-изследователската дейност , докторантури и СДК:<br>
+		<b>доц. д-р Надя Златева</b><br>
+		Кабинет 208, телефон: <a href="tel:028161574">02/8161-574</a>,<br>
+		Email: <a href="mailto:zlateva@fmi.uni-sofia.bg">zlateva@fmi.uni-sofia.bg</a>
+		<table><tr><td>приемно време:</td><td>понеделник  13:00ч. – 15:00ч.</td></tr></table></p>
+	</div>
+	<div data-role="popup" id="moreinfo-zd-econ">
+		<p>Заместник-декан по стопанска и международна дейност, прием на студенти:
+		<br><b>доц. д-р Христо Ганчев</b><br>
+		Кабинет 208, телефон: <a href="tel:028161574">02/8161-574</a>,<br>
+		Email: <a href="mailto:h.ganchev@fmi.uni-sofia.bg">h.ganchev@fmi.uni-sofia.bg</a>
+		<table><tr><td>приемно време:</td><td>вторник 10:00ч. – 12:00ч.</td></tr></table></p>
+	</div>
+	<div data-role="panel" id="defaultpanel" class="ui-panel ui-panel-position-left ui-panel-display-overlay ui-body-c ui-panel-animate ui-panel-closed">
+    </div>
+</div>
+</body>
+</html>
