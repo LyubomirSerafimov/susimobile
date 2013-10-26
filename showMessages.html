@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SUSI Mobile</title>
+    <link rel="stylesheet"  href="css/themes/default/jquery.mobile-1.3.2.min.css">
+    <link rel="shortcut icon" href="demos/_assets/favicon.ico">
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.mobile-1.3.2.min.js"></script>
+</head>
+<body>
+<div data-role="page" id="pageMessages">
+    <div data-role="panel" id="defaultpanel" class="ui-panel ui-panel-position-left ui-panel-display-reveal ui-body-c ui-panel-animate ui-panel-closed">
+    </div>
+    <div data-theme="a" data-role="header" data-position="fixed" >
+        <a data-role="button" data-icon="search" data-iconpos="notext" data-corners="false"
+        class="ui-btn-right" ></a>
+        <a data-role="button" href="#defaultpanel" data-icon="bars" data-iconpos="notext" data-corners="false"
+        class="ui-btn-left" id="leftPanel" ></a>
+        <h3>
+            Съобщения
+        </h3>
+    </div>
+    <div data-role="content">
+        <!-- content goes here -->
+        <div id="messagesContainer">
+        </div>
+    </div>
+</div>
+    
+<script type="text/javascript">
+    var messages = [
+        {
+            "messageId": 1,
+            "from": "kak_sme@abv.bg",
+            "topic": "asdasdasdsasd",
+            "body": "Kak sme kelesh :D",
+            "date": "8:49"
+        },
+        {
+            "messageId": 1,
+            "from": "kak_ne_sme@abv.bg",
+            "topic": "asdasdasdsasd",
+            "body": "Kak sme kelesh :D",
+            "date": "25.10 8:49"
+        }
+    ];
+    
+    function getHtml(data) {
+        var html = "<ul data-role=\"listview\" data-divider-theme=\"b\" data-inset=\"true\">";
+        html += "<li data-role=\"list-divider\" role=\"heading\">Inbox</li>";
+        
+        $.each(data, function(index, value) {
+            html += "\
+                <li data-theme=\"c\" onclick=\"\">\
+                    <a href=\"#page1\" data-transition=\"slide\">\
+                    <div>\
+                        <span style=\"font-size: 0.6em; overflow: hidden;\">" + value['from'] + "</span> <br />\
+                        <span style=\"font-size: 0.6em\">" + value['topic'] + "</span>\
+                    </div>\
+                    <span class=\"ui-li-count\">\
+                        "+value['date']+"\
+                    </span>\
+                </a>\
+            </li>"
+        });
+        
+        html += "</ul>";
+        
+        return html;
+    }
+    
+    //$("#messagesContainer").append(ul);
+    $("#messagesContainer").append(getHtml(messages))
+    </script>
+</body>
+</html>
