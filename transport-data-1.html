@@ -1,0 +1,212 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head><link href="../App_Themes/CGM/Default.css" type="text/css" rel="stylesheet" /><title>
+	Виртуални табла - Център за градска мобилност
+</title>
+<style type="text/css">
+	.ctl00_Menu1_0 { background-color:white;visibility:hidden;display:none;position:absolute;left:0px;top:0px; }
+	.ctl00_Menu1_1 { color:#2E90A9;font-family:Verdana,Arial;font-size:11px;text-decoration:none; }
+	.ctl00_Menu1_2 { color:#2E90A9;font-family:Verdana,Arial;font-size:11px; }
+	.ctl00_Menu1_3 { text-decoration:underline; }
+	.ctl00_Menu1_4 { text-decoration:underline; }
+
+</style></head>
+<body  style="margin: 0px; padding: 0px">
+
+    <form name="aspnetForm" method="post" action="SelectByLine.aspx" id="aspnetForm">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE5ODg1MzQ2ODgPZBYCZg9kFgICAw9kFgICAw9kFgYCAQ9kFg4CBQ8QZGQWAWZkAgkPD2QPEBYBZhYBFgIeDlBhcmFtZXRlclZhbHVlZRYBZmRkAgsPEA8WAh4LXyFEYXRhQm91bmRnZGQWAWZkAg8PD2QPEBYCZgIBFgIWAh8AZRYCHwBlFgJmZmRkAhEPEA8WAh8BZ2QQFQAVABQrAwAWAGQCFQ8PZA8QFgJmAgEWAhYCHwBlFgIfAGUWAmZmZGQCFw8QZGQWAWZkAgMPZBYCAgMPDxYCHgdWaXNpYmxlaGRkAgcPZBYCAgMPD2QPEBYDZgIBAgIWAxYCHwBlFgIfAGUWAh8AZRYDZmZmZGQYAgUhY3RsMDAkQ29udGVudFBsYWNlSG9sZGVyMSRndlJvdXRlD2dkBSFjdGwwMCRDb250ZW50UGxhY2VIb2xkZXIxJGd2VGltZXMPZ2TScFnYHGHFODq86xqBYmdgPM9VzQ==" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=40ktg9DM8xbxgdyeaKAZew2&amp;t=633911727076755000" type="text/javascript"></script>
+
+    <a href="#ctl00_Menu1_SkipLink" style="display:inline-block;height:1px;width:1px;"><img src="/WebResource.axd?d=iZhu2rfvUWnoEOqKKq3jiQ2&amp;t=633911727076755000" alt="Skip Navigation Links" style="border-width:0px;" /></a><div id="ctl00_Menu1">
+	<span><a class="ctl00_Menu1_1" href="SelectByLine.aspx"> Търсене по линия </a></span> <span><a class="ctl00_Menu1_1" href="SelectByStop.aspx"> Търсене по спирка </a></span> 
+</div><a name="ctl00_Menu1_SkipLink"></a>
+    <div>
+        <br />   
+           
+            <table style="vertical-align: top;">
+                <tr>
+                    <td style="vertical-align: top; width: 400px;">
+                        <div id="ctl00_ContentPlaceHolder1_pnlLile" class="PanelBody" style="border-color:#2E90A9;border-width:2px;border-style:Solid;">
+	
+                            <div id="ctl00_ContentPlaceHolder1_pnlLileHeader" class="PanelHeader">
+		
+                                <span id="ctl00_ContentPlaceHolder1_lblLineHeader">Избери линия</span>
+                            
+	</div>
+                            <table style="vertical-align: top; width: 400px;">
+                                <tr>
+                                    <td>
+                                        <span id="ctl00_ContentPlaceHolder1_lblType">Вид транспорт</span>
+                                    </td>
+                                    <td>
+                                        <select name="ctl00$ContentPlaceHolder1$ddlTransportType" onchange="javascript:setTimeout('__doPostBack(\'ctl00$ContentPlaceHolder1$ddlTransportType\',\'\')', 0)" id="ctl00_ContentPlaceHolder1_ddlTransportType" style="color:#4A4A4A;border-color:#CCCCCC;border-width:1px;border-style:Solid;">
+		<option selected="selected" value="">-- Избери --</option>
+		<option value="1">Автобусен</option>
+		<option value="0">Трамваен</option>
+		<option value="2">Тролейбусен</option>
+
+	</select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span id="ctl00_ContentPlaceHolder1_lblLine">Линия</span>
+                                    </td>
+                                    <td>
+                                        
+                                        <select name="ctl00$ContentPlaceHolder1$ddlLines" onchange="javascript:setTimeout('__doPostBack(\'ctl00$ContentPlaceHolder1$ddlLines\',\'\')', 0)" id="ctl00_ContentPlaceHolder1_ddlLines" style="color:#4A4A4A;border-color:#CCCCCC;border-width:1px;border-style:Solid;">
+		<option selected="selected" value="">--Избери--</option>
+
+	</select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span id="ctl00_ContentPlaceHolder1_lblRoute">Маршрут</span>
+                                    </td>
+                                    <td>
+                                        
+                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span id="ctl00_ContentPlaceHolder1_lblStop">Спирка</span>
+                                    </td>
+                                    <td>
+                                        
+                                        <select name="ctl00$ContentPlaceHolder1$ddlStops" onchange="javascript:setTimeout('__doPostBack(\'ctl00$ContentPlaceHolder1$ddlStops\',\'\')', 0)" id="ctl00_ContentPlaceHolder1_ddlStops" style="color:#4A4A4A;border-color:#CCCCCC;border-width:1px;border-style:Solid;">
+		<option selected="selected" value="">--Избери--</option>
+
+	</select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="text-align: right;">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <span id="id_Captcha_Message">Моля, въведете символите от изображението, за да видите
+                                                        резултата от търсенето</span>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <img id="id_Captcha" src="../Services/Captcha.ashx" alt="Captcha" />
+                                                    </div>
+                                                    <div>
+                                                        <input name="ctl00$ContentPlaceHolder1$CaptchaInput" type="text" onchange="javascript:setTimeout('__doPostBack(\'ctl00$ContentPlaceHolder1$CaptchaInput\',\'\')', 0)" onkeypress="if (WebForm_TextBoxKeyHandler(event) == false) return false;" id="ctl00_ContentPlaceHolder1_CaptchaInput" />
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        
+                                    </td>
+                                </tr>
+                            </table>
+                            <br />
+                        
+</div>
+                        <br />
+                        <div id="ctl00_ContentPlaceHolder1_Panel3" class="PanelBody" style="border-color:#2E90A9;border-width:2px;border-style:Solid;width:400px;">
+	
+                            <div id="ctl00_ContentPlaceHolder1_Panel4" class="PanelHeader">
+		
+                                <span id="ctl00_ContentPlaceHolder1_lblHeader" style="font-weight:bold;">Търсената от вас спирка е:</span><br />
+                            
+	</div>
+                            
+                            <br />
+                            <span id="ctl00_ContentPlaceHolder1_lblStopName"></span><br />
+                            <span id="ctl00_ContentPlaceHolder1_lblDescription"></span>
+                        
+</div>
+                        <br />
+                        <div id="ctl00_ContentPlaceHolder1_pnlTimes" class="PanelBody" style="border-color:#2E90A9;border-width:2px;border-style:Solid;">
+	
+                            <div id="ctl00_ContentPlaceHolder1_pnlTimesHeader" class="PanelHeader">
+		
+                                <span id="ctl00_ContentPlaceHolder1_lblTimesHeader">Резултати от търсенето</span>
+                            
+	</div>
+                            <br />
+                            <ol style="text-align: left;">
+                                <li style="list-style-type: none; width: 100%; margin-bottom: 3px;">
+                                    <img alt="" src="../img/special_assistance.jpg" style="float: left; margin-right: 3px;" />
+                                    Превозни средства с улеснени условия за достъп.</li>
+                                <li style="list-style-type: none; width: 100%; margin-bottom: 3px;">
+                                    <img alt="" src="../img/aircondition.jpg" style="float: left; margin-right: 3px;" />
+                                    Превозни средства с климатик.</li>
+                            </ol>
+                            <div>
+
+	</div>
+                            
+                            <br />
+                        
+</div>
+                    </td>
+                    <td style="vertical-align: top; width: 300px;">
+                        <div id="ctl00_ContentPlaceHolder1_Panel1" class="PanelBody" style="border-color:#2E90A9;border-width:2px;border-style:Solid;">
+	
+                            <div id="ctl00_ContentPlaceHolder1_Panel2" class="PanelHeader">
+		
+                                <span id="ctl00_ContentPlaceHolder1_Label1">Маршрут</span>
+                            
+	</div>
+                            
+                            <div>
+
+	</div>
+                        
+</div>
+                    </td>
+                </tr>
+            </table>
+
+    </div>
+    
+<div>
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWCwKF0svNAgKv2ZuPBAKv2ZuPBAKgtrHhCAK/trHhCAKhtrHhCAKUwsypBAKUwsypBAKCtOfNCAKCtOfNCALXx7G7BzcmKNeRe8gzNaXkfHZO3WDfFHiO" />
+</div></form>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36920208-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>
