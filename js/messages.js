@@ -2,7 +2,7 @@ var messages = [
        {
            "messageId": 1,
            "from": "kak_sme@abv.bg",
-           "topic": "asdasdasdsasd",
+           "topic": "Mnogo gotin tipic",
            "body": "Kak sme kelesh :D",
            "date": "8:49",
            "isNew": true
@@ -10,7 +10,7 @@ var messages = [
        {
            "messageId": 3,
            "from": "kak_ne_sme@abv.bg",
-           "topic": "asdasdasdsasd",
+           "topic": "Oshte po gotin topic",
            "body": "Kak sme kelesh :D",
            "date": "25.10 8:49",
            "isNew": false
@@ -20,7 +20,9 @@ var messages = [
 var messagesNamespace = {
     
     userMessages: [],
-    
+    currentMessage: null,
+    referer: null,
+            
     Message: function(data) {
         var instance = Object();
 
@@ -75,14 +77,55 @@ var messagesNamespace = {
     showMessagesAction: function(wrapperId) {
         $("#" + wrapperId).html(this.renderMessagesList());
     },
-    
+            
     viewMessageAction: function(wrapperId, messageId) {
         $("#" + wrapperId).html(this.renderMessage(messageId));
+    },
+            
+    sendMessageAction: function(wrapperId) {
+        $("#" + wrapperId).html($("#send-message").html());
+        
+        $("#footer-list").addClass("hidden");
+    },
+            
+    handleSend: function() {
+        document.location = "showMessages.html  ";
+    },
+    
+    replyMessageAction: function(wrapperId) {
+        $("#" + wrapperId).html($("#send-message").html());
+        
+        $("#textinput-reciever").val(this.currentMessage.from);
+        $("#textinput-topic").val("Re: " + this.currentMessage.topic);
+        
+        $("#footer-view").addClass("hidden");
+    },
+            
+    forwardMessageAction: function(wrapperId) {
+        $("#" + wrapperId).html($("#send-message").html());
+        
+        $("#textinput-topic").val(this.currentMessage.topic);
+        $("#textarea-body").val(this.currentMessage.body);
+        
+        $("#footer-view").addClass("hidden");
     },
             
     /* WARNING */        
     /* PRIVATE METHODS BELOW THIS LINE */
     /* DO NOT CALL DIRECTLY */
+    getMessage: function(messageId) {
+        $.each(this.userMessages, function(index, value) {
+            if(parseInt(value.id, 10) === parseInt(messageId, 10)) {
+                messagesNamespace.currentMessage = value;
+                return false;
+            }
+        });
+        
+        if(this.currentMessage !== null) {
+            return this.currentMessage; 
+        }
+    },
+    
     parseMessages: function(messages) {
         $.each(messages, function(index, value) {
             messagesNamespace.userMessages.push(messagesNamespace.Message(value));
@@ -115,11 +158,23 @@ var messagesNamespace = {
         return html;
     },
             
+    
     renderMessage: function(messageId) {
         var html = "";
         
+        var message = this.getMessage(messageId);
         
+        html += "<h2>\
+                    " + message.topic + ", " + message.from + "\
+                </h2>\
+                <h5>\
+                    " + message.body + "\
+                </h5>";
         
+        /* Change footer */
+        $("#footer-list").addClass("hidden");
+        $("#footer-view").show();
+        return html;
     },
             
     renderNewMessage: function() {
