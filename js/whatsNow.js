@@ -23,8 +23,8 @@ var whatsNowNamespace = {
     },
             
     renderWhatsNowList: function() {
-        var a = new Date();
-        var day = a.getDay();
+        var a = new Date() + 4;
+        var day = 3;
         var customData = [];
         
         switch(day) {
@@ -79,7 +79,7 @@ var whatsNowNamespace = {
         var proccesedData = [];
         
         var a = new Date();
-        var hour = a.getHours();
+        var hour = a.getHours() - 4;
         
         $.each(currentData, function(index, value) {
             if(hour >= value['start'] && hour < value['end']) {
@@ -99,7 +99,7 @@ var whatsNowNamespace = {
         var proccesedData = [];
         
         var a = new Date();
-        var hour = a.getHours();
+        var hour = a.getHours() - 4;
         
         $.each(currentData, function(index, value) {
             if(index !== whatsNowNamespace.group) {
