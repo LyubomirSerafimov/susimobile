@@ -16,13 +16,24 @@
 			scr.setAttribute("src", "data/teachers_jsonp.json");
 			$(scr).appendTo($("body"));
 		}
+		function prepareData(i) {
+			var dataI = allTeachersData[i];
+			var dataHtml = "<p>" + dataI["teacherTitle"] + " " + dataI["teacherFullname"] +
+					"<br>Катедра: " + dataI["department"] + "<br>" +
+					"Email: <a href=mailto:" + dataI["teacherEmail"] + ">" + dataI["teacherEmail"] +
+					"</a></p>";
+			$("#moreinfo-teacher").html(dataHtml);
+			var yoffset = window.pageYOffset;
+			$("#moreinfo-teacher").popup("open", { positionTo: "window" });
+			$.mobile.silentScroll(yoffset);
+		}
 		function teachersFetched(jsonData) {
 			allTeachersData = jsonData;
 			for(i=0; i<jsonData.length; i++) {
 				var dataI = jsonData[i];
-				var str = "<li><a href=\"#moreinfo-teacher\"" +
-					"data-rel=\"popup\" data-position-to=\"window\" data-transition=\"pop\">" +
-					dataI["teacherName"] + "</a></li>";
+				var str = "<li id=\"teachers" + dataI["teacherId"] + "\"><a href=\"#moreinfo-teacher\" onclick=\"prepareData(" + i + ")\"" +
+					"data-rel=\"popup\" data-position-to=\"window\" data-transition=\"pop\" rel=\"external\">" +
+ 					dataI["teacherName"] + "</a></li>";
 				$("#teachers-list").append(str);
 				/*var popupStr = "<div data-role=\"popup\" id=\"moreinfo-" + dataI["teacherId"] +
 					"\"><p>" + dataI["teacherTitle"] + " " + dataI["teacherFullname"] +
