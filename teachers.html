@@ -23,15 +23,15 @@
 					"Email: <a href=mailto:" + dataI["teacherEmail"] + ">" + dataI["teacherEmail"] +
 					"</a></p>";
 			$("#moreinfo-teacher").html(dataHtml);
-			var yoffset = window.pageYOffset;
-			$("#moreinfo-teacher").popup("open", { positionTo: "window" });
-			$.mobile.silentScroll(yoffset);
+			//var yoffset = window.pageYOffset;
+			$("#moreinfo-teacher").popup("open");
+			//$.mobile.silentScroll(yoffset);
 		}
 		function teachersFetched(jsonData) {
 			allTeachersData = jsonData;
 			for(i=0; i<jsonData.length; i++) {
 				var dataI = jsonData[i];
-				var str = "<li id=\"teachers" + dataI["teacherId"] + "\"><a href=\"#moreinfo-teacher\" onclick=\"prepareData(" + i + ")\"" +
+				var str = "<li id=\"teachers" + dataI["teacherId"] + "\"><a href=\"#\" onclick=\"prepareData(" + i + ")\"" +
 					"data-rel=\"popup\" data-position-to=\"window\" data-transition=\"pop\" rel=\"external\">" +
  					dataI["teacherName"] + "</a></li>";
 				$("#teachers-list").append(str);
