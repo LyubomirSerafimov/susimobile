@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SUSI Mobile</title>
     <link rel="stylesheet"  href="css/themes/default/jquery.mobile-1.3.2.min.css">
+    <link rel="stylesheet"  href="css/style.css">
+    <link rel="stylesheet"  href="css/calendar.css">
     <link rel="shortcut icon" href="demos/_assets/favicon.ico">
     <script src="js/jquery.js"></script>
     <script src="js/jquery.mobile-1.3.2.min.js"></script>
+    <script src="js/messages.js"></script>
 </head>
 <body>
-<div data-role="page" id="pageMessages">
+<div data-role="page" id="page1">
     <div data-role="panel" id="defaultpanel" data-position="left" data-display="overlay" data-theme="a" class="ui-panel ui-panel-position-left ui-panel-display-overlay ui-body-a ui-panel-animate ui-panel-open">
         <ul data-role="listview" data-divider-theme="b" data-inset="false">
             <li data-role="list-divider">Меню</li>
@@ -50,57 +53,55 @@
             Съобщения
         </h3>
     </div>
-    <div data-role="content">
-        <!-- content goes here -->
-        <div id="messagesContainer">
-        </div>
+    <div data-role="content" id="content">
+        <!-- content start -->
+        
+        <!-- content end -->
+    </div>
+    <div data-theme="a" data-role="footer" data-position="fixed" id="footer-list">
+        <h3>
+        </h3>
+        <a data-role="button" href="showMessages.html" data-icon="refresh" data-iconpos="left"
+        class="ui-btn-left" data-ajax="false">
+            Презареди
+        </a>
+        <a data-role="button" data-icon="arrow-r" data-iconpos="right" class="ui-btn-right" onclick="javascript:messagesNamespace.sendMessageAction('content')">
+            Изпрати
+        </a>
+    </div>
+    <div data-theme="a" data-role="footer" data-position="fixed" id="footer-view" style="display:none;">
+        <a data-role="button" href="#page1" data-icon="back" data-iconpos="left"
+        class="ui-btn-left" onclick="javascript:messagesNamespace.replyMessageAction('content');">
+            Отговори
+        </a>
+        <a data-role="button" data-icon="forward" data-iconpos="right" class="ui-btn-right" onclick="javascript:messagesNamespace.forwardMessageAction('content');">Препрати</a>
+        <h5>
+        </h5>
+    </div>
+    <div id="send-message" style="display:none;">
+        <form action="showMessages.html">
+            <div data-role="fieldcontain">
+                <label for="textinput5">
+                    До:
+                </label>
+                <input name="" id="textinput-reciever" placeholder="" value="" type="email">
+            </div>
+            <div data-role="fieldcontain">
+                <label for="textinput6">
+                    Относно:
+                </label>
+                <input name="" id="textinput-topic" placeholder="" value="" type="text">
+            </div>
+            <div data-role="fieldcontain">
+                <textarea name="" id="textarea-body" placeholder="" style="resize: vertical; height: 150px; width: 100%"></textarea>
+            </div>
+            <input onclick="messagesNamespace.handleSend()" type="submit" data-icon="arrow-r" data-iconpos="right" value="Изпрати">
+        </form>
     </div>
 </div>
-    
 <script type="text/javascript">
-    var messages = [
-        {
-            "messageId": 1,
-            "from": "kak_sme@abv.bg",
-            "topic": "asdasdasdsasd",
-            "body": "Kak sme kelesh :D",
-            "date": "8:49"
-        },
-        {
-            "messageId": 1,
-            "from": "kak_ne_sme@abv.bg",
-            "topic": "asdasdasdsasd",
-            "body": "Kak sme kelesh :D",
-            "date": "25.10 8:49"
-        }
-    ];
-    
-    function getHtml(data) {
-        var html = "<ul data-role=\"listview\" data-divider-theme=\"b\" data-inset=\"true\">";
-        html += "<li data-role=\"list-divider\" role=\"heading\">Inbox</li>";
-        
-        $.each(data, function(index, value) {
-            html += "\
-                <li data-theme=\"c\" onclick=\"\">\
-                    <a href=\"#page1\" data-transition=\"slide\">\
-                    <div>\
-                        <span style=\"font-size: 0.6em; overflow: hidden;\">" + value['from'] + "</span> <br />\
-                        <span style=\"font-size: 0.6em\">" + value['topic'] + "</span>\
-                    </div>\
-                    <span class=\"ui-li-count\">\
-                        "+value['date']+"\
-                    </span>\
-                </a>\
-            </li>"
-        });
-        
-        html += "</ul>";
-        
-        return html;
-    }
-    
-    //$("#messagesContainer").append(ul);
-    $("#messagesContainer").append(getHtml(messages))
-    </script>
+    messagesNamespace.init();
+    messagesNamespace.showMessagesAction("content");
+</script>
 </body>
 </html>
