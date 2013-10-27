@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SUSI Mobile</title>
+    <title>FMI Mobile</title>
     <link rel="stylesheet"  href="css/themes/default/jquery.mobile-1.3.2.min.css">
     <link rel="stylesheet"  href="css/calendar.css">
     <link rel="shortcut icon" href="demos/_assets/favicon.ico">
@@ -53,20 +53,270 @@
     </div>
     <div data-role="content">
         <!-- content start -->
-        <div id="geo-output"></div>
+		<div data-role="fieldcontain">
+            <label for="roomSelector" align="center">
+                Стая:
+            </label>
+            <select id="roomSelector" name="">
+                <option value="301">
+                    301
+                </option>
+                <option value="302">
+                    302
+                </option>
+                <option value="303">
+                    303
+                </option>
+                <option value="304">
+                    304
+                </option>
+                <option value="305">
+                    305
+                </option>
+                <option value="306">
+                    306
+                </option>
+                <option value="307">
+                    307
+                </option>
+				<option value="308">
+                    308
+                </option>
+				<option value="309">
+                    309
+                </option>
+				<option value="310">
+                    310
+                </option>
+				<option value="311">
+                    311
+                </option>
+				<option value="312">
+                    312
+                </option>
+				<option value="313">
+                    313
+                </option>
+				<option value="314">
+                    314
+                </option>
+				<option value="316">
+                    316
+                </option>
+				<option value="317">
+                    317
+                </option>
+				<option value="319">
+                    319
+                </option>
+				<option value="320">
+                    320
+                </option>
+				<option value="322">
+                    322
+                </option>
+				<option value="325">
+                    325
+                </option>
+				<option value="326">
+                    326
+                </option>
+				<option value="327">
+                    327
+                </option>
+            </select>
+        </div>
         <canvas id="mapcanvas" style="width: 100%; height: 500px; border: 1px solid #000;"></canvas>
-        <!-- content end -->
+		<!-- content end -->
     </div>
 </div>
 <script src="js/img-touch-canvas.js"></script>
 <script type="text/javascript">
-    setTimeout(function() {
-        var gesturableImg = new ImgTouchCanvas({
-            canvas: document.getElementById('mapcanvas'),
-            path: "img/floor3.png"
-        });
-    }, 1000);
+	var cvs = document.getElementById('mapcanvas');
+    var ctx = cvs.getContext("2d");
+		ctx.fillStyle="#ff0000";
+		ctx.strokeStyle="#ff0000";
+	var Pts = [
+		[73,339],
+		[76,153],
+		[210,342],
+		[220,144],
+		[364,339],
+		[371,156],
+		[518,342],
+		[518,163],
+		[662,336],
+		[665,163],
+		[806,352],
+		[806,156],
+		[1027,352],
+		[1030,576],
+		[1062,352],
+		[1059,201],
+		[1305,352],
+		[1302,188],
+		[1494,352],
+		[1497,182],//19
+		[1683,345],//20
+		[1680,185],
+		[1958,326],
+		[1952,169],
+		[2195,345],
+		[2192,179],
+		[2332,332],
+		[2339,185],
+		[2336,524],
+		[2489,348],
+		[2492,185],//30
+		[636,537],//31
+		[2652,355],
+		[192,535],//33
+		[2652,544],
+		[2764,339],
+		[2764,192],
+		[2809,342],
+		[2803,537],
+		[2956,342],
+		[2956,192],//40
+		[2960,531],
+		[1815,347],
+		[1825,523]
+	];
+	var Ne = [ 
+		[1,2],
+		[0],
+		[0,3,4,33],
+		[2],
+		[2,5,6],
+		[4],
+		[4,7,8],
+		[6],
+		[6,9,10,31],
+		[8],
+		[8,11,12],
+		[10],
+		[10,13,14],
+		[12],
+		[12,15,16],
+		[14],
+		[14,17,18],
+		[16],
+		[16,19,20],
+		[18],
+		[18,21,42],//20
+		[20],
+		[42,23,24],//22
+		[22],
+		[22,25,26],//24
+		[24],
+		[24,27,28,29],
+		[26],
+		[26],
+		[26,30,32],
+		[29],//30
+		[8],//31
+		[29,34,35],
+		[2],
+		[32],//34
+		[32,36,37],
+		[35],
+		[35,38,39],
+		[37],
+		[37,40,41],//39
+		[39],
+		[39],
+		[20,22,43],//42
+		[42],//43
+	];
+	var par = [];
+	var path = [];
+	function getNearest(posX,posY){
+		var min=10000,p;
+		for(i=0;i<Pts.length;i++){
+			r = Math.sqrt((posX-Pts[i][0])*(posX-Pts[i][0]) + (posY-Pts[i][1])*(posY-Pts[i][1]));
+			if(r<min){min=r;p=i;}
+		}
+		return p;
+	}
+	function BFS(num,tgt){
+		arr = new Array();
+		arr.push(num);
+		for(i=0;i<Pts.length;i++){par[i]=-1;}
+		par[num]=num;
+		while(arr.length!=0){
+			num = arr.pop();
+			for(i=0;i<Ne[num].length;i++){
+				var a=Ne[num][i];
+				if(par[a]!=-1)continue;
+				par[a]=num;
+				if(a==tgt){return a;}
+				arr.push(a);
+			}
+		}
+	}
+	var ThePosition=[1900,700];
+	function getPath(TheTarget){
+		num1 = getNearest(ThePosition[0],ThePosition[1]);
+		BFS(num1,TheTarget);
+		path = new Array();
+		path.push(TheTarget);
+		while(par[TheTarget]!=TheTarget){
+			TheTarget = par[TheTarget];
+			path.push(TheTarget);
+		}
+	}
+
+	$("#roomSelector").change(function(){
+		getPath(getRoom($(this).val()));
+	});
+	function getRoom(roomNum){
+		switch(roomNum){
+			case "301":{return 1; }//1
+			case "302":{return 3; }//3
+			case "303":{return 5; }//5
+			case "304":{return 7; }//7
+			case "305":{return 9; }//9
+			case "306":{return 11; }//11
+			case "307":{return 15; }//15
+			case "308":{return 17; }//17
+			case "309":{return 19; }//19
+			case "310":{return 21; }//21
+			case "311":{return 23; }//23
+			case "312":{return 25; }//25
+			case "313":{return 27; }//27
+			case "314":{return 30; }//30
+			case "316":{return 36; }//36
+			case "317":{return 40; }//40
+			case "319":{return 38; }//38
+			case "320":{return 34; }//34
+			case "322":{return 28; }//28
+			case "325":{return 43; }//43
+			case "326":{return 31; }//31
+			case "327":{return 33; }//33
+		}
+	}
+	setTimeout(function() {
+			var gesturableImg = new ImgTouchCanvas({
+				canvas: cvs,
+				path: "img/floor3.png",
+				customDraw: function(posX,posY,scX,scY){
+					ctx.fillStyle="#ff0000";
+					ctx.strokeStyle="#ff0000";
+					ctx.beginPath();
+					if(path[1]){
+						ctx.arc(Pts[path[path.length-1]][0]*scX+posX+5,Pts[path[path.length-1]][1]*scY+posY+5,20*scY+posY,0,2*Math.PI);
+					}
+					for(i=1;i<path.length;i++){
+						ctx.moveTo(Pts[path[i-1]][0]*scX+posX+5,Pts[path[i-1]][1]*scY+posY+5);
+						ctx.lineTo(Pts[path[i]][0]*scX+posX+5,Pts[path[i]][1]*scY+posY+5);
+					}
+					ctx.stroke();
+					ctx.fill();
+					
+				}
+			});
+		}, 1000);
 </script>
-<script src="js/location.js"></script>
 </body>
+<script src="js/record_location.js"></script>
 </html>
