@@ -284,14 +284,14 @@
     var programForFlow = {};
     var electives = [];
 
-    $.get('data/program_cs.json', function(data) {
+    $.getJSON('data/program_cs.json', function(data) {
         try {
             programForYear = data['year' + year];
             programForFlow = programForYear.flows[flow - 1];
         } catch (e) {
             console.log('error while parsing');
         }
-        $.get('data/el.json', function(data) {
+        $.getJSON('data/el.json', function(data) {
             electives = data;
             showProgramForDay('tuesday');
             addElectives(electives);
