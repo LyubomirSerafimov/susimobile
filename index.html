@@ -11,202 +11,188 @@
     <script src="js/jquery.mobile-1.3.2.min.js"></script>
 </head>
 <body>
-
-    <div data-role="page" id="page1">
-        <div data-role="panel" id="eventDialog" data-position="right" data-display="push" data-theme="a" class="ui-panel ui-panel-position-right ui-panel-display-push ui-body-a ui-panel-animate ui-panel-open">
-        <div data-role="content">
-            <ul data-role="listview" data-divider-theme="b" data-inset="false">
-                <li data-role="list-divider" role="heading">
-                    Промяна на Събитие
-                </li>
-            </ul>
-            <div data-role="fieldcontain">
-                <label for="editEventName">
-                    Име на Събитие
-                </label>
-                <input name="" id="editEventName" placeholder="" value="" type="text">
-            </div>
-            <div data-role="fieldcontain">
-                <label for="textinput11">
-                    Час
-                </label>
-                <input name="" id="editEventTime" placeholder="" value="" type="time">
-            </div>
-            <div data-role="fieldcontain">
-                <label for="textinput12">
-                    Дата:
-                </label>
-                <input name="" id="editEventDate" placeholder="" value="" type="date">
-            </div>
-            <div class="ui-grid-a">
-                <div class="ui-block-a">
-                    <a data-role="button" href="#page1" id="editEventSave">
-                        Ok
-                    </a>
-                </div>
-                <div class="ui-block-b">
-                    <a href="#eventDialog" data-rel="close" data-role="button" >
-                        Назад
-                    </a>
-                </div>
-            </div>
-        </div>
-        </div>
-        <div data-role="panel" id="defaultpanel" data-position="left" data-display="overlay" data-theme="a" class="ui-panel ui-panel-position-left ui-panel-display-overlay ui-body-a ui-panel-animate ui-panel-open">
-            <ul data-role="listview" data-divider-theme="b" data-inset="false">
-                <li data-role="list-divider">Меню</li>
-                <li data-theme="c">
-                    <a href="index.html" data-ajax="false">
-                        Начало
-                    </a>
-                </li>
-                <li data-theme="c">
-                    <a href="calendar.html" data-ajax="false">
-                        Календар
-                    </a>
-                </li>
-                <li data-theme="c">
-                    <a href="contacts.html" data-ajax="false">
-                        Контакти
-                    </a>
-                </li>
-                <li data-theme="c">
-                    <a href="showMessages.html" data-ajax="false">
-                        Съобщения
-                    </a>
-                </li>
-                <li data-theme="c">
-                    <a href="teachers.html" data-ajax="false">
-                        Учители
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div data-role="panel"  id="createEvent" data-position="right" data-display="overlay" data-theme="b" class="ui-panel ui-panel-position-right ui-panel-display-overlay ui-body-a ui-panel-animate ui-panel-open">
-            <h2>
-                Създаване на Събитие
-            </h2>
-            <form action="">
-                <div data-role="fieldcontain">
-                    <label for="eventName" style="display:block;">
-                        Събитие:
-                    </label>
-                    <input name="" id="eventName" placeholder="" value="" type="text" data-mini="false">
-                </div>
-                <div data-role="fieldcontain">
-                    <label for="eventTime" style="display:block;">
-                        Час:
-                    </label>
-                    <input name="time" id="eventTime" placeholder="" value="" type="time" data-mini="false">
-                </div>
-                <div data-role="fieldcontain">
-                    <label for="eventDate" style="display:block;">
-                        Дата:
-                    </label>
-                    <input data-clear-btn="false" data-input="date" name="date" id="eventDate" type="date" value="" class="ui-input-text ui-body-null ui-corner-all ui-shadow-inset ui-body-a">
-                </div>
-                <div class="ui-grid-a">
-                    <div class="ui-block-a">
-                        <a data-role="button" href="#page1" data-icon="check" data-iconpos="left" id="addEventOk" >
-                            Ок
-                        </a>
-                    </div>
-                    <div class="ui-block-b">
-                        <a href="#createEvent" data-rel="close" data-role="button" data-icon="back" data-iconpos="left">
-                            Назад
-                        </a>
-                    </div>
-                </div>
-            </form>
-        </div>
-        <div data-theme="a" data-role="header" data-position="fixed" >
-            <a data-role="button" data-icon="search" data-iconpos="notext" data-corners="false"
-            class="right_custom ui-btn-right" ></a>
-            <a data-role="button" href="#defaultpanel" data-icon="bars" data-iconpos="notext" data-corners="false"
-            class="ui-btn-left left_custom" id="leftPanel" ></a>
-            <h3>
-                Събития
-            </h3>
-        </div>
-        <div data-role="content">
-            <div class="ui-grid-a">
-                <div class="ui-block-a">
-                    <a href="#createEvent" data-role="button" data-transition="slidefade" href="#page1" data-icon="plus"
-                    data-iconpos="left">
-                        Add
-                    </a>
-                </div>
-                <div class="ui-block-b">
-                    <a data-role="button" href="#page1" data-icon="delete" data-iconpos="left">
-                        Delete
-                    </a>
-                </div>
-            </div>
-            <ul data-role="listview" data-divider-theme="b" data-inset="true" date="2013-10-26" >
-                <li data-role="list-divider" role="heading">
-                    2013-10-26
-                </li>
-                <li data-theme="c" event-time="14:35" >
-                    <a href="#eventDialog" data-transition="slide">
-                        &lt;Събитие 1&gt;
-                        <span class="ui-li-count">
-                            14:35
-                        </span>
-                    </a>
-                </li>
-                <li data-theme="c" event-time="14:50">
-                    <a href="#eventDialog" data-transition="slide">
-                        &lt;Събитие 2&gt;
-                        <span class="ui-li-count">
-                            14:50
-                        </span>
-                    </a>
-                </li>
-            </ul>
-            <ul data-role="listview" data-divider-theme="b" data-inset="true" date="2013-10-27">
-                <li data-role="list-divider" role="heading">
-                    2013-10-27
-                </li>
-                <li data-theme="c" event-time="14:35">
-                    <a href="#eventDialog" data-transition="slide">
-                        &lt;Събитие 1&gt;
-                        <span class="ui-li-count">
-                            14:35
-                        </span>
-                    </a>
-                </li>
-                <li data-theme="c" event-time="14:50">
-                    <a href="#eventDialog" data-transition="slide">
-                        &lt;Събитие 2&gt;
-                        <span class="ui-li-count">
-                            14:50
-                        </span>
-                    </a>
-                </li>
-            </ul>
-            <ul data-role="listview" data-divider-theme="b" data-inset="true" date="2013-10-28">
-                <li data-role="list-divider" role="heading">
-                    2013-10-28
-                </li>
-                <li data-theme="c" event-time="14:35">
-                    <a href="#eventDialog" data-transition="slide">
-                        &lt;Събитие 1&gt;
-                        <span class="ui-li-count">
-                            14:35
-                        </span>
-                    </a>
-                </li>
-                <li data-theme="c" event-time="14:50">
-                    <a href="#eventDialog" data-rel="panel">
-                        &lt;Събитие 2&gt;
-                        <span class="ui-li-count">
-                            14:50
-                        </span>
-                    </a>
-                </li>
-            </ul>
-        </div>
+<div data-role="page" id="page1">
+    <div data-role="panel" id="defaultpanel" data-position="left" data-display="overlay" data-theme="a" class="ui-panel ui-panel-position-left ui-panel-display-overlay ui-body-a ui-panel-animate ui-panel-open">
+        <ul data-role="listview" data-divider-theme="b" data-inset="false">
+            <li data-role="list-divider">Меню</li>
+            <li data-theme="c">
+                <a href="index.html" data-ajax="false">
+                    Начало
+                </a>
+            </li>
+            <li data-theme="c">
+                <a href="calendar.html" data-ajax="false">
+                    Календар
+                </a>
+            </li>
+            <li data-theme="c">
+                <a href="contacts.html" data-ajax="false">
+                    Контакти
+                </a>
+            </li>
+            <li data-theme="c">
+                <a href="showMessages.html" data-ajax="false">
+                    Съобщения
+                </a>
+            </li>
+            <li data-theme="c">
+                <a href="teachers.html" data-ajax="false">
+                    Учители
+                </a>
+            </li>
+        </ul>
     </div>
+    <div data-theme="a" data-role="header" data-position="fixed" >
+        <a data-role="button" data-icon="search" data-iconpos="notext" data-corners="false"
+        class="ui-btn-right" ></a>
+        <a data-role="button" href="#defaultpanel" data-icon="bars" data-iconpos="notext" data-corners="false"
+        class="ui-btn-left" id="leftPanel" ></a>
+        <h3>
+            Карта
+        </h3>
+    </div>
+    <div data-role="content">
+        <!-- content start -->
+        <canvas id="mapcanvas" style="width: 100%; height: 500px; border: 1px solid #000;"></canvas>
+        <div id="testDiv" style="min-height:500px;"></div>
+		<!-- content end -->
+    </div>
+</div>
+<script src="js/img-touch-canvas.js"></script>
+<script type="text/javascript">
+//3.921
+	selectedPoint = '.';
+	var cvs = document.getElementById('mapcanvas');
+    var ctx = cvs.getContext("2d");
+		ctx.fillStyle="#ff0000";
+		ctx.strokeStyle="#ff0000";
+	var Pts = [
+		/*[23,106],
+		[24,48],
+		[68,107],
+		[69,45],
+		[114,106],
+		[116,49],
+		[162,107],
+		[162,51],
+		[207,105],
+		[208,51],
+		[252,110],
+		[252,49],
+		[321,110],
+		[322,180],
+		[332,110],
+		[331,63],
+		[408,110],
+		[407,59],
+		[467,110],
+		[468,57],
+		[526,108],
+		[525,58],
+		[612,102],
+		[610,53],
+		[686,108],
+		[685,56],
+		[729,104],
+		[731,58],
+		[730,164],
+		[778,109],
+		[779,58],
+		[780,168],
+		[829,111],
+		[829,58],
+		[829,170],
+		[864,106],
+		[864,60],
+		[878,107],
+		[876,168],
+		[924,107],
+		[924,60],
+		[925,166]*/
+/*[73,339],
+[76,153],
+[217,342],
+[220,144],
+[364,339],
+[371,156],
+[518,342],
+[518,163],
+[662,336],
+[665,163],
+[806,352],
+[806,156],
+[1027,352],
+[1030,576],
+[1062,352],
+[1059,201],
+[1305,352],
+[1302,188],
+[1494,352],
+[1497,182],
+[1683,345],
+[1680,185],
+[1958,326],
+[1952,169],
+[2195,345],
+[2192,179],
+[2332,332],
+[2339,185],
+[2336,524],
+[2489,348],
+[2492,185],
+[2496,537],
+[2652,355],
+[2652,185],
+[2652,544],
+[2764,339],
+[2764,192],
+[2809,342],
+[2803,537],
+[2956,342],
+[2956,192],
+[2960,531]*/
+	];
+	setTimeout(function(){
+		for(i=0;i<Pts.length;i++){
+			/*Pts[i][0] = (Pts[i][0]/1000)*cvs.width;
+			Pts[i][1] = (Pts[i][1]*cvs.width/1000);*/
+			
+			//$("#testDiv").append("</br>["+Math.floor(Pts[i][0]*3.2)+","+Math.floor(Pts[i][1]*3.2)+"],");
+		}
+	},1200);
+	function drawLine(A,B){
+		ctx.moveTo(A[0],A[1]);
+		ctx.lineTo(B[0],B[1]);
+	}
+	setTimeout(function(){$("#testDiv").append(cvs.width+" "+cvs.height+"</br>");},1200);
+	setTimeout(function() {
+			var gesturableImg = new ImgTouchCanvas({
+				canvas: cvs,
+				path: "img/floor3.png",
+				customDraw: function(posX,posY,scX,scY){
+					/*ctx.moveTo(100,100);
+					ctx.lineTo(200,200);*/
+					//$("#testDiv").html(posX+" "+posY+" "+scX+" "+scY);
+						ctx.fillStyle="#ff0000";
+					for(i=0;i<Pts.length;i++){
+						ctx.fillRect(Pts[i][0]*scX+posX,Pts[i][1]*scY+posY,10,10);
+					}
+					
+					ctx.fill();
+				}
+			});
+		}, 1000);
+	
+	$("canvas").click(function(e){
+		//alert(e.pageX+" "+e.pageY);
+		scale = cvs.width/3200;
+		ptX = (e.pageX-$("#mapcanvas").offset().left-5)/scale;
+		ptY = (e.pageY-$("#mapcanvas").offset().top-5)/scale;
+		Pts[Pts.length] = [ptX,ptY];
+		$("#testDiv").append("["+ptX+","+ptY+"]</br>");
+		selectedPoint = "["+ptX+","+ptY+"]";
+	});
+</script>
+<script src="js/record_location.js"></script>
 </body>
-<script src="js/index.js"></script>
 </html>
